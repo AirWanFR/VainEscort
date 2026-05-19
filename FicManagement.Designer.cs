@@ -1,10 +1,20 @@
-﻿namespace Projet_VainEscort
+﻿using System.Drawing;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
+namespace Projet_VainEscort
 {
-    // CORRECTION : On renomme la classe pour qu'elle corresponde exactement au fichier principal
     partial class FicManagement
     {
+        /// <summary>
+        /// Variable nécessaire au concepteur.
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+        /// <summary>
+        /// Nettoyage des ressources utilisées.
+        /// </summary>
+        /// <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -16,143 +26,177 @@
 
         #region Windows Form Designer generated code
 
+        /// <summary>
+        /// Méthode requise pour la prise en charge du concepteur - ne modifiez pas
+        /// le contenu de cette méthode avec l'éditeur de code.
+        /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpCA = new System.Windows.Forms.TabPage();
-            this.chartTurnover = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.dgvTurnover = new System.Windows.Forms.DataGridView();
-            this.tpRent = new System.Windows.Forms.TabPage();
-            this.dgvProfitability = new System.Windows.Forms.DataGridView();
-            this.tpClientsAttitres = new System.Windows.Forms.TabPage();
-            this.btnGenererPdfAttitres = new System.Windows.Forms.Button();
-            this.dgvClientsAttitres = new System.Windows.Forms.DataGridView();
-            this.tabControl1.SuspendLayout();
-            this.tpCA.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chartTurnover)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnover)).BeginInit();
-            this.tpRent.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfitability)).BeginInit();
-            this.tpClientsAttitres.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientsAttitres)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FicManagement));
+            ChartArea chartArea1 = new ChartArea();
+            Legend legend1 = new Legend();
+            tabControl1 = new TabControl();
+            tpCA = new TabPage();
+            chartTurnover = new Chart();
+            btnCA = new Button();
+            dgvTurnover = new DataGridView();
+            tpRent = new TabPage();
+            btnPdfRenta = new Button();
+            dgvProfitability = new DataGridView();
+            tpClientsAttitres = new TabPage();
+            btnGenererPdfAttitres = new Button();
+            dgvClientsAttitres = new DataGridView();
+            tabControl1.SuspendLayout();
+            tpCA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)chartTurnover).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTurnover).BeginInit();
+            tpRent.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvProfitability).BeginInit();
+            tpClientsAttitres.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvClientsAttitres).BeginInit();
+            SuspendLayout();
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tpCA);
-            this.tabControl1.Controls.Add(this.tpRent);
-            this.tabControl1.Controls.Add(this.tpClientsAttitres);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 426);
-            this.tabControl1.TabIndex = 0;
+            tabControl1.Controls.Add(tpCA);
+            tabControl1.Controls.Add(tpRent);
+            tabControl1.Controls.Add(tpClientsAttitres);
+            tabControl1.Location = new Point(12, 12);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(776, 426);
+            tabControl1.TabIndex = 0;
             // 
             // tpCA
             // 
-            this.tpCA.Controls.Add(this.chartTurnover);
-            this.tpCA.Controls.Add(this.dgvTurnover);
-            this.tpCA.Location = new System.Drawing.Point(4, 29);
-            this.tpCA.Name = "tpCA";
-            this.tpCA.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCA.Size = new System.Drawing.Size(768, 393);
-            this.tpCA.TabIndex = 0;
-            this.tpCA.Text = "Chiffre d\'Affaires";
-            this.tpCA.UseVisualStyleBackColor = true;
+            tpCA.Controls.Add(chartTurnover);
+            tpCA.Controls.Add(btnCA);
+            tpCA.Controls.Add(dgvTurnover);
+            tpCA.ForeColor = SystemColors.ActiveCaptionText;
+            tpCA.Location = new Point(4, 29);
+            tpCA.Name = "tpCA";
+            tpCA.Padding = new Padding(3);
+            tpCA.Size = new Size(768, 393);
+            tpCA.TabIndex = 0;
+            tpCA.Text = "Chiffre d'Affaires";
+            tpCA.UseVisualStyleBackColor = true;
             // 
             // chartTurnover
             // 
             chartArea1.Name = "ChartArea1";
-            this.chartTurnover.ChartAreas.Add(chartArea1);
+            chartTurnover.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chartTurnover.Legends.Add(legend1);
-            this.chartTurnover.Location = new System.Drawing.Point(383, 6);
-            this.chartTurnover.Name = "chartTurnover";
-            this.chartTurnover.Size = new System.Drawing.Size(379, 381);
-            this.chartTurnover.TabIndex = 1;
-            this.chartTurnover.Text = "chart1";
+            chartTurnover.Legends.Add(legend1);
+            chartTurnover.Location = new Point(383, 6);
+            chartTurnover.Name = "chartTurnover";
+            chartTurnover.Size = new Size(379, 332);
+            chartTurnover.TabIndex = 2;
+            chartTurnover.Text = "chartTurnover";
+            chartTurnover.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            // 
+            // btnCA
+            // 
+            btnCA.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCA.ForeColor = SystemColors.ActiveCaptionText;
+            btnCA.Location = new Point(637, 344);
+            btnCA.Name = "btnCA";
+            btnCA.Size = new Size(125, 43);
+            btnCA.TabIndex = 1;
+            btnCA.Text = "Générer PDF";
+            btnCA.UseVisualStyleBackColor = true;
             // 
             // dgvTurnover
             // 
-            this.dgvTurnover.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTurnover.Location = new System.Drawing.Point(6, 6);
-            this.dgvTurnover.Name = "dgvTurnover";
-            this.dgvTurnover.RowHeadersWidth = 51;
-            this.dgvTurnover.Size = new System.Drawing.Size(371, 381);
-            this.dgvTurnover.TabIndex = 0;
+            dgvTurnover.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvTurnover.Location = new Point(6, 6);
+            dgvTurnover.Name = "dgvTurnover";
+            dgvTurnover.ReadOnly = true;
+            dgvTurnover.RowHeadersWidth = 51;
+            dgvTurnover.Size = new Size(371, 381);
+            dgvTurnover.TabIndex = 0;
             // 
             // tpRent
             // 
-            this.tpRent.Controls.Add(this.dgvProfitability);
-            this.tpRent.Location = new System.Drawing.Point(4, 29);
-            this.tpRent.Name = "tpRent";
-            this.tpRent.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRent.Size = new System.Drawing.Size(768, 393);
-            this.tpRent.TabIndex = 1;
-            this.tpRent.Text = "Rentabilité";
-            this.tpRent.UseVisualStyleBackColor = true;
+            tpRent.Controls.Add(btnPdfRenta);
+            tpRent.Controls.Add(dgvProfitability);
+            tpRent.Location = new Point(4, 29);
+            tpRent.Name = "tpRent";
+            tpRent.Padding = new Padding(3);
+            tpRent.Size = new Size(768, 393);
+            tpRent.TabIndex = 1;
+            tpRent.Text = "Rentabilité";
+            tpRent.UseVisualStyleBackColor = true;
+            // 
+            // btnPdfRenta
+            // 
+            btnPdfRenta.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnPdfRenta.Location = new Point(565, 333);
+            btnPdfRenta.Name = "btnPdfRenta";
+            btnPdfRenta.Size = new Size(128, 54);
+            btnPdfRenta.TabIndex = 1;
+            btnPdfRenta.Text = "Généré PDF";
+            btnPdfRenta.UseVisualStyleBackColor = true;
             // 
             // dgvProfitability
             // 
-            this.dgvProfitability.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProfitability.Location = new System.Drawing.Point(6, 6);
-            this.dgvProfitability.Name = "dgvProfitability";
-            this.dgvProfitability.RowHeadersWidth = 51;
-            this.dgvProfitability.Size = new System.Drawing.Size(756, 381);
-            this.dgvProfitability.TabIndex = 0;
+            dgvProfitability.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProfitability.Location = new Point(3, 9);
+            dgvProfitability.Name = "dgvProfitability";
+            dgvProfitability.ReadOnly = true;
+            dgvProfitability.RowHeadersWidth = 51;
+            dgvProfitability.Size = new Size(540, 378);
+            dgvProfitability.TabIndex = 0;
             // 
             // tpClientsAttitres
             // 
-            this.tpClientsAttitres.Controls.Add(this.btnGenererPdfAttitres);
-            this.tpClientsAttitres.Controls.Add(this.dgvClientsAttitres);
-            this.tpClientsAttitres.Location = new System.Drawing.Point(4, 29);
-            this.tpClientsAttitres.Name = "tpClientsAttitres";
-            this.tpClientsAttitres.Size = new System.Drawing.Size(768, 393);
-            this.tpClientsAttitres.TabIndex = 2;
-            this.tpClientsAttitres.Text = "Clients Attitrés";
-            this.tpClientsAttitres.UseVisualStyleBackColor = true;
+            tpClientsAttitres.BackColor = SystemColors.GradientInactiveCaption;
+            tpClientsAttitres.Controls.Add(btnGenererPdfAttitres);
+            tpClientsAttitres.Controls.Add(dgvClientsAttitres);
+            tpClientsAttitres.Location = new Point(4, 29);
+            tpClientsAttitres.Name = "tpClientsAttitres";
+            tpClientsAttitres.Size = new Size(768, 393);
+            tpClientsAttitres.TabIndex = 2;
+            tpClientsAttitres.Text = "Clients Attitrés";
             // 
             // btnGenererPdfAttitres
             // 
-            this.btnGenererPdfAttitres.Location = new System.Drawing.Point(6, 342);
-            this.btnGenererPdfAttitres.Name = "btnGenererPdfAttitres";
-            this.btnGenererPdfAttitres.Size = new System.Drawing.Size(200, 40);
-            this.btnGenererPdfAttitres.TabIndex = 1;
-            this.btnGenererPdfAttitres.Text = "Générer PDF";
-            this.btnGenererPdfAttitres.UseVisualStyleBackColor = true;
-            this.btnGenererPdfAttitres.Click += new System.EventHandler(this.btnGenererPdfAttitres_Click);
+            btnGenererPdfAttitres.Location = new Point(6, 342);
+            btnGenererPdfAttitres.Name = "btnGenererPdfAttitres";
+            btnGenererPdfAttitres.Size = new Size(200, 40);
+            btnGenererPdfAttitres.TabIndex = 1;
+            btnGenererPdfAttitres.Text = "Générer PDF";
+            btnGenererPdfAttitres.UseVisualStyleBackColor = true;
             // 
             // dgvClientsAttitres
             // 
-            this.dgvClientsAttitres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientsAttitres.Location = new System.Drawing.Point(6, 6);
-            this.dgvClientsAttitres.Name = "dgvClientsAttitres";
-            this.dgvClientsAttitres.RowHeadersWidth = 51;
-            this.dgvClientsAttitres.Size = new System.Drawing.Size(756, 330);
-            this.dgvClientsAttitres.TabIndex = 0;
+            dgvClientsAttitres.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientsAttitres.Location = new Point(6, 6);
+            dgvClientsAttitres.Name = "dgvClientsAttitres";
+            dgvClientsAttitres.ReadOnly = true;
+            dgvClientsAttitres.RowHeadersWidth = 51;
+            dgvClientsAttitres.Size = new Size(756, 330);
+            dgvClientsAttitres.TabIndex = 0;
             // 
             // FicManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tabControl1);
-            // CORRECTION : Le nom de la fenêtre et l'événement de chargement
-            this.Name = "FicManagement";
-            this.Text = "VainEscort - Management";
-            this.Load += new System.EventHandler(this.FicManagement_Load);
-            this.tabControl1.ResumeLayout(false);
-            this.tpCA.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chartTurnover)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTurnover)).EndInit();
-            this.tpRent.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProfitability)).EndInit();
-            this.tpClientsAttitres.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientsAttitres)).EndInit();
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
+            ClientSize = new Size(800, 450);
+            Controls.Add(tabControl1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "FicManagement";
+            Text = "VainEscort - Management";
+            Load += FicManagement_Load;
+            tabControl1.ResumeLayout(false);
+            tpCA.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)chartTurnover).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvTurnover).EndInit();
+            tpRent.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvProfitability).EndInit();
+            tpClientsAttitres.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvClientsAttitres).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
@@ -164,7 +208,9 @@
         private System.Windows.Forms.DataGridView dgvTurnover;
         private System.Windows.Forms.DataGridView dgvProfitability;
         private System.Windows.Forms.DataGridView dgvClientsAttitres;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chartTurnover;
         private System.Windows.Forms.Button btnGenererPdfAttitres;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartTurnover;
+        private System.Windows.Forms.Button btnCA;
+        private System.Windows.Forms.Button btnPdfRenta;
     }
 }

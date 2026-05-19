@@ -10,8 +10,12 @@ namespace VainEscort.BLL
         public DataTable ChargerEmployes() => _dal.GetEmployesActifs();
         public DataTable ChargerClients() => _dal.GetAllClients();
 
-        public bool Ajouter(string prenom, string nom, int idEmp) => _dal.Insert(prenom, nom, idEmp);
-        public bool Modifier(int id, string prenom, string nom, int idEmp) => _dal.Update(id, prenom, nom, idEmp);
+        public bool Ajouter(string prenom, string nom, string telephone, string email, int idEmp)
+            => _dal.Insert(prenom, nom, telephone, email, idEmp);
+
+        public bool Modifier(int id, string prenom, string nom, string telephone, string email, int idEmp)
+            => _dal.Update(id, prenom, nom, telephone, email, idEmp);
+
         public bool Supprimer(int id) => _dal.Delete(id);
     }
 }

@@ -8,7 +8,6 @@ namespace VainEscort.DAL
     {
         private string _connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=GestionEscortDB;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        // Récupère la liste des employés actifs pour remplir la ComboBox à droite
         public DataTable GetEmployesActifs()
         {
             DataTable dt = new DataTable();
@@ -20,14 +19,13 @@ namespace VainEscort.DAL
             return dt;
         }
 
-        // Récupère tous les clients avec les infos de l'employé attitré
         public DataTable GetAllClients()
         {
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                // CORRECTION : Utilisation de "EstAttitreA" pour la table Clients
-                string sql = @"SELECT c.ID_Client, c.Prenom, c.Nom, 
+                // Ajout de Telephone et Email
+                string sql = @"SELECT c.ID_Client, c.Prenom, c.Nom, c.Telephone, c.Email, 
                                e.Nom + ' ' + e.Prenom AS [Employé Attitré], c.EstAttitreA AS Employe_ID_Hidden
                                FROM Clients c
                                LEFT JOIN Employes e ON c.EstAttitreA = e.ID_Employe";
@@ -36,31 +34,33 @@ namespace VainEscort.DAL
             return dt;
         }
 
-        public bool Insert(string prenom, string nom, int idEmp)
+        public bool Insert(string prenom, string nom, string telephone, string email, int idEmp)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                // CORRECTION : Utilisation de "EstAttitreA"
-                string sql = "INSERT INTO Clients (Prenom, Nom, EstAttitreA) VALUES (@prenom, @nom, @idEmp)";
+                string sql = "INSERT INTO Clients (Prenom, Nom, Telephone, Email, EstAttitreA) VALUES (@prenom, @nom, @tel, @email, @idEmp)";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@prenom", prenom);
                 cmd.Parameters.AddWithValue("@nom", nom);
+                cmd.Parameters.AddWithValue("@tel", (object)telephone ?? DBNull.Value); // Gère les champs vides
+                cmd.Parameters.AddWithValue("@email", (object)email ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@idEmp", idEmp);
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;
             }
         }
 
-        public bool Update(int idClient, string prenom, string nom, int idEmp)
+        public bool Update(int idClient, string prenom, string nom, string telephone, string email, int idEmp)
         {
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                // CORRECTION : Utilisation de "EstAttitreA"
-                string sql = "UPDATE Clients SET Prenom = @prenom, Nom = @nom, EstAttitreA = @idEmp WHERE ID_Client = @id";
+                string sql = "UPDATE Clients SET Prenom = @prenom, Nom = @nom, Telephone = @tel, Email = @email, EstAttitreA = @idEmp WHERE ID_Client = @id";
                 SqlCommand cmd = new SqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@id", idClient);
                 cmd.Parameters.AddWithValue("@prenom", prenom);
                 cmd.Parameters.AddWithValue("@nom", nom);
+                cmd.Parameters.AddWithValue("@tel", (object)telephone ?? DBNull.Value);
+                cmd.Parameters.AddWithValue("@email", (object)email ?? DBNull.Value);
                 cmd.Parameters.AddWithValue("@idEmp", idEmp);
                 conn.Open();
                 return cmd.ExecuteNonQuery() > 0;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FicPresta));
             panel1 = new Panel();
             lblHeure = new Label();
             lblDate = new Label();
@@ -213,9 +214,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(panel1);
             Controls.Add(dgvPresta);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FicPresta";
             Text = "VainEscort - Prestation";
             Load += FicPresta_Load;

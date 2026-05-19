@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FicCatalogue));
             btnActualiser = new Button();
             btnExporterHTML = new Button();
             panel1 = new Panel();
@@ -82,11 +83,14 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.ActiveCaption;
             ClientSize = new Size(800, 450);
             Controls.Add(webBrowserCatalogue);
             Controls.Add(panel1);
+            ForeColor = SystemColors.ControlText;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FicCatalogue";
-            Text = "FicCatalogue";
+            Text = "VainEscort - Catalogue";
             Load += FicCatalogue_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)webBrowserCatalogue).EndInit();

@@ -12,7 +12,7 @@ namespace VainEscort.DAL
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string sql = @"SELECT TOP 10 p.DatePrestation, c.Nom AS Client, e.Nom + ' ' + e.Prenom AS [Employé Attitré], p.EstFacture
+                string sql = @"SELECT p.DatePrestation, c.Nom AS Client, e.Nom + ' ' + e.Prenom AS [Employé Attitré], p.EstFacture
                        FROM Prestations p
                        JOIN Clients c ON p.ID_Client = c.ID_Client
                        JOIN Employes e ON p.ID_Employe = e.ID_Employe 

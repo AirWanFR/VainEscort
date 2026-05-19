@@ -8,7 +8,6 @@ namespace VainEscort.DAL
     {
         private string _connectionString = @"Server=(localdb)\MSSQLLocalDB;Database=GestionEscortDB;Trusted_Connection=True;TrustServerCertificate=True;";
 
-        // --- CATALOGUES POUR LES COMBOS ---
         public DataTable GetEmployes()
         {
             DataTable dt = new DataTable();
@@ -25,7 +24,8 @@ namespace VainEscort.DAL
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                string sql = "SELECT ID_Client, Nom + ' ' + Prenom AS Affichage FROM Clients";
+                // La colonne EstAttitreA est cruciale ici pour l'auto-sélection
+                string sql = "SELECT ID_Client, Nom + ' ' + Prenom AS Affichage, EstAttitreA FROM Clients";
                 new SqlDataAdapter(sql, conn).Fill(dt);
             }
             return dt;
@@ -42,17 +42,15 @@ namespace VainEscort.DAL
             return dt;
         }
 
-        // --- GESTION DES PRESTATIONS (CRUD) ---
         public DataTable GetAllPrestations()
         {
             DataTable dt = new DataTable();
             using (SqlConnection conn = new SqlConnection(_connectionString))
             {
-                // Sélection avec alias propres et les IDs d'origines masqués pour l'UI
                 string sql = @"SELECT p.ID_Prestation, p.DatePrestation, 
                                c.Nom + ' ' + c.Prenom AS Client, p.ID_Client AS Client_ID_Hidden,
                                e.Nom + ' ' + e.Prenom AS [Employé], p.ID_Employe AS Employe_ID_Hidden,
-                               t.Libelle AS Type, p.DureeHeures
+                               t.Libelle AS Type, p.ID_Type, p.DureeHeures
                                FROM Prestations p
                                JOIN Clients c ON p.ID_Client = c.ID_Client
                                JOIN Employes e ON p.ID_Employe = e.ID_Employe

@@ -125,7 +125,7 @@ namespace Projet_VainEscort
         {
             FicManagement ficPerfCA = new FicManagement();
 
-            ficPerfCA.ShowDialog();
+            ficPerfCA.Show();
 
             RafraichirDashboard();
         }
@@ -134,7 +134,7 @@ namespace Projet_VainEscort
         {
             FicCatalogue catalogue = new FicCatalogue();
 
-            catalogue.ShowDialog();
+            catalogue.Show();
 
             RafraichirDashboard();
         }

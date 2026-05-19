@@ -28,7 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FicClients));
             pnlBouton = new Panel();
+            txtEmail = new TextBox();
+            lEmail = new Label();
+            txtTelephone = new TextBox();
+            lTel = new Label();
             cmbEmployes = new ComboBox();
             label1 = new Label();
             btnSupprimer = new Button();
@@ -39,6 +44,7 @@
             txtPrenom = new TextBox();
             lPrenom = new Label();
             dgvClients = new DataGridView();
+            btnQuitter = new Button();
             pnlBouton.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvClients).BeginInit();
             SuspendLayout();
@@ -46,6 +52,10 @@
             // pnlBouton
             // 
             pnlBouton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pnlBouton.Controls.Add(txtEmail);
+            pnlBouton.Controls.Add(lEmail);
+            pnlBouton.Controls.Add(txtTelephone);
+            pnlBouton.Controls.Add(lTel);
             pnlBouton.Controls.Add(cmbEmployes);
             pnlBouton.Controls.Add(label1);
             pnlBouton.Controls.Add(btnSupprimer);
@@ -55,10 +65,42 @@
             pnlBouton.Controls.Add(lNom);
             pnlBouton.Controls.Add(txtPrenom);
             pnlBouton.Controls.Add(lPrenom);
-            pnlBouton.Location = new Point(365, 38);
+            pnlBouton.Location = new Point(542, 38);
             pnlBouton.Name = "pnlBouton";
             pnlBouton.Size = new Size(423, 200);
             pnlBouton.TabIndex = 3;
+            // 
+            // txtEmail
+            // 
+            txtEmail.Location = new Point(214, 98);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(125, 27);
+            txtEmail.TabIndex = 12;
+            // 
+            // lEmail
+            // 
+            lEmail.AutoSize = true;
+            lEmail.Location = new Point(214, 75);
+            lEmail.Name = "lEmail";
+            lEmail.Size = new Size(46, 20);
+            lEmail.TabIndex = 11;
+            lEmail.Text = "Email";
+            // 
+            // txtTelephone
+            // 
+            txtTelephone.Location = new Point(83, 98);
+            txtTelephone.Name = "txtTelephone";
+            txtTelephone.Size = new Size(125, 27);
+            txtTelephone.TabIndex = 10;
+            // 
+            // lTel
+            // 
+            lTel.AutoSize = true;
+            lTel.Location = new Point(83, 75);
+            lTel.Name = "lTel";
+            lTel.Size = new Size(78, 20);
+            lTel.TabIndex = 9;
+            lTel.Text = "Téléphone";
             // 
             // cmbEmployes
             // 
@@ -146,16 +188,30 @@
             dgvClients.Location = new Point(12, 38);
             dgvClients.Name = "dgvClients";
             dgvClients.RowHeadersWidth = 51;
-            dgvClients.Size = new Size(347, 374);
+            dgvClients.Size = new Size(524, 374);
             dgvClients.TabIndex = 2;
+            // 
+            // btnQuitter
+            // 
+            btnQuitter.Location = new Point(871, 373);
+            btnQuitter.Name = "btnQuitter";
+            btnQuitter.Size = new Size(94, 39);
+            btnQuitter.TabIndex = 13;
+            btnQuitter.Text = "Quitter";
+            btnQuitter.UseVisualStyleBackColor = true;
+            btnQuitter.Click += btnQuitter_Click;
             // 
             // FicClients
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(977, 450);
+            ControlBox = false;
+            Controls.Add(btnQuitter);
             Controls.Add(pnlBouton);
             Controls.Add(dgvClients);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FicClients";
             Text = "VainEscort - Gestion Clients";
             Load += FicClients_Load;
@@ -178,5 +234,10 @@
         private TextBox txtPrenom;
         private Label lPrenom;
         private DataGridView dgvClients;
+        private TextBox txtEmail;
+        private Label lEmail;
+        private TextBox txtTelephone;
+        private Label lTel;
+        private Button btnQuitter;
     }
 }

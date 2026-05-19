@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FicFacturation));
             dgvFacturation = new DataGridView();
             btnGenererFactures = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvFacturation).BeginInit();
@@ -40,13 +41,13 @@
             dgvFacturation.Location = new Point(12, 12);
             dgvFacturation.Name = "dgvFacturation";
             dgvFacturation.RowHeadersWidth = 51;
-            dgvFacturation.Size = new Size(403, 282);
+            dgvFacturation.Size = new Size(811, 282);
             dgvFacturation.TabIndex = 0;
             // 
             // btnGenererFactures
             // 
             btnGenererFactures.Anchor = AnchorStyles.Bottom;
-            btnGenererFactures.Location = new Point(111, 322);
+            btnGenererFactures.Location = new Point(315, 322);
             btnGenererFactures.Name = "btnGenererFactures";
             btnGenererFactures.Size = new Size(202, 29);
             btnGenererFactures.TabIndex = 1;
@@ -58,9 +59,11 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(427, 450);
+            BackColor = SystemColors.ActiveCaption;
+            ClientSize = new Size(835, 450);
             Controls.Add(btnGenererFactures);
             Controls.Add(dgvFacturation);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FicFacturation";
             Text = "VainEscort - Facturation";
             Load += FicFacturation_Load;
